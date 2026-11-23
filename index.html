@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Closing the Loop - Clickable Prototype
+    </title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="page">
+      <div class="mast">
+        <div class="brand">
+          <span class="mark">
+            CL
+          </span>
+          <span>
+            INT335 | Design Thinking
+          </span>
+        </div>
+        <span>
+          CP5 clickable wireframe
+        </span>
+      </div>
+      <header class="hero">
+        <div>
+          <div class="eyebrow">
+            Working concept · Draft for user testing
+          </div>
+          <h1>
+            Closing the Loop
+          </h1>
+          <p>
+            A proposed complaint flow for seeing who has the next step, what is happening, and whether the repair is resolved.
+          </p>
+        </div>
+        <span class="demo-pill">
+          DEMO DATA ONLY
+        </span>
+      </header>
+      <div class="notice">
+        <b>
+          Prototype notice:
+        </b>
+        This is a classroom mock-up. It does not contact hostel staff, submit a real request, or save information to a service. Please use only the demo information shown here.
+      </div>
+      <div class="switcher" role="tablist" aria-label="Choose prototype role">
+        <button id="residentTab" class="active" role="tab" aria-selected="true">
+          Resident view
+        </button>
+        <button id="staffTab" role="tab" aria-selected="false">
+          Staff / technician view
+        </button>
+      </div>
+      <div class="layout">
+        <aside class="rail">
+          <p class="rail-title" id="roleLabel" data-copy="residentRole">
+            Resident view
+          </p>
+          <nav class="nav" id="residentNav">
+            <button class="active" data-view="resident-home" data-copy="myRequests">
+              My requests
+            </button>
+            <button data-view="resident-new" data-copy="reportIssueNav">
+              Report an issue
+            </button>
+            <button data-view="resident-detail" data-copy="requestProgressNav">
+              Request progress
+            </button>
+          </nav>
+          <nav class="nav hidden" id="staffNav">
+            <button class="active" data-view="staff-queue">
+              Work queue
+            </button>
+            <button data-view="staff-detail">
+              Update a request
+            </button>
+          </nav>
+        </aside>
+        <main class="content">
+          <section id="resident-home" class="view">
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h2>
+                    My maintenance requests
+                  </h2>
+                  <p class="sub">
+                    Demo list for a prototype task
+                  </p>
+                </div>
+                <button class="btn primary" data-go="resident-new">
+                  + Report an issue
+                </button>
+              </div>
+              <div id="residentTickets">
+              </div>
+            </article>
+          </section>
+          <section id="resident-new" class="view hidden">
+            <article class="card">
+              <div class="card-head report-card-head">
+                <div>
+                  <h2 data-copy="reportTitle">Report a maintenance issue</h2>
+                  <p class="sub" data-copy="reportSubtitle">Choose an issue and add details.</p>
+                </div>
+                <div class="language-switch" role="group" aria-label="Choose form language">
+                  <button type="button" class="language-button active" id="englishButton" aria-pressed="true">English</button>
+                  <button type="button" class="language-button" id="hindiButton" aria-pressed="false">हिंदी</button>
+                </div>
+              </div>
+              <fieldset class="field issue-fieldset">
+                <legend class="field-legend" data-copy="issueType">Choose the issue type</legend>
+                <div class="issue-choice-grid" role="group" aria-label="Issue type">
+                  <button type="button" class="issue-choice" data-issue="Power socket / switch" aria-pressed="false">
+                    <span class="choice-icon" aria-hidden="true">⚡</span><span><strong data-copy="socket">Power socket</strong><small data-copy="socketHint">Socket or switch not working</small></span>
+                  </button>
+                  <button type="button" class="issue-choice" data-issue="Water leak / tap" aria-pressed="false">
+                    <span class="choice-icon" aria-hidden="true">◉</span><span><strong data-copy="water">Water leak or tap</strong><small data-copy="waterHint">Leak or water fitting</small></span>
+                  </button>
+                  <button type="button" class="issue-choice" data-issue="AC leak" aria-pressed="false">
+                    <span class="choice-icon" aria-hidden="true">❄</span><span><strong data-copy="ac">AC leak</strong><small data-copy="acHint">AC pipe or cooling issue</small></span>
+                  </button>
+                  <button type="button" class="issue-choice" data-issue="Chair / furniture" aria-pressed="false">
+                    <span class="choice-icon" aria-hidden="true">▤</span><span><strong data-copy="furniture">Chair or furniture</strong><small data-copy="furnitureHint">Broken or loose furniture</small></span>
+                  </button>
+                  <button type="button" class="issue-choice" data-issue="Door / fixture" aria-pressed="false">
+                    <span class="choice-icon" aria-hidden="true">⌑</span><span><strong data-copy="door">Door or fixture</strong><small data-copy="doorHint">Door, knob, or fitting</small></span>
+                  </button>
+                  <button type="button" class="issue-choice" data-issue="Other" aria-pressed="false">
+                    <span class="choice-icon" aria-hidden="true">＋</span><span><strong data-copy="other">Other issue</strong><small data-copy="otherHint">Describe another problem</small></span>
+                  </button>
+                </div>
+              </fieldset>
+              <div class="field hidden" id="otherIssueWrap">
+                <label for="otherIssue" data-copy="otherLabel">What is the issue?</label>
+                <input id="otherIssue" type="text" data-placeholder="otherPlaceholder" placeholder="Type a short issue name">
+              </div>
+              <button type="button" class="details-toggle" id="issueDetailsToggle" data-copy="issueDetailsToggle" aria-expanded="false">
+                ＋ Add details about this issue (optional)
+              </button>
+              <div class="field hidden" id="issueDetailsWrap">
+                <label for="issueDetails" data-copy="describeLabel">Describe the issue (optional)</label>
+                <textarea id="issueDetails" rows="2" data-placeholder="describePlaceholder" placeholder="Add a few details"></textarea>
+              </div>
+              <button type="button" class="details-toggle" id="detailsToggle" aria-expanded="false">
+                <span aria-hidden="true">＋</span> <span data-copy="pastDetails">Add details about previous repairs (optional)</span>
+              </button>
+              <div class="field hidden" id="pastDetailsWrap">
+                <label for="pastDetails" data-copy="pastLabel">Previous repair or extra information</label>
+                <textarea id="pastDetails" rows="2" data-placeholder="pastPlaceholder" placeholder="For example, what was tried before"></textarea>
+              </div>
+              <button type="button" class="details-toggle" id="beforePhotosToggle" data-copy="beforePhotosToggle" aria-expanded="false">
+                <span aria-hidden="true">＋</span> Add photos of the issue (optional)
+              </button>
+              <div class="field photo-field hidden" id="beforePhotosWrap">
+                <label for="beforePhotos">Photos of the issue</label>
+                <input id="beforePhotos" type="file" accept="image/*" multiple>
+                <span class="hint">Files stay in this browser demo and are not sent or saved.</span>
+                <div class="photo-preview" id="beforePhotoPreview" aria-live="polite"></div>
+              </div>
+              <div class="grid2">
+                <div class="field">
+                  <label for="location" data-copy="locationLabel">Demo location</label>
+                  <input id="location" type="text" data-placeholder="locationPlaceholder" placeholder="Use a demo location only">
+                  <span class="hint" data-copy="locationHint">Do not enter a real room number or personal details.</span>
+                </div>
+                <div class="field">
+                  <label for="route" data-copy="routeLabel">How was it reported?</label>
+                  <select id="route">
+                    <option value="RMS request" data-copy="routeRms">RMS request</option>
+                    <option value="Warden / hostel staff" data-copy="routeStaff">Warden / hostel staff</option>
+                    <option value="Other route" data-copy="routeOther">Other route</option>
+                  </select>
+                </div>
+              </div>
+              <div class="stack">
+                <button class="btn primary" id="submitRequest" data-copy="submitButton">Continue</button>
+                <button class="btn" data-go="resident-home" data-copy="cancelButton">Cancel</button>
+              </div>
+            </article>
+          </section>
+          <section id="resident-detail" class="view hidden">
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h2 id="residentDetailTitle">
+                    Request progress
+                  </h2>
+                  <p class="sub" id="residentDetailMeta">
+                  </p>
+                </div>
+                <span class="tag teal" id="residentStatusTag">
+                </span>
+              </div>
+              <div class="notice-inline" id="residentNext">
+              </div>
+              <div class="status-overview">
+                <div class="status-overview-head">
+                  <strong id="progressSummary">Stage 2 of 5 · Under review</strong>
+                  <button type="button" class="text-button" id="timelineToggle" aria-expanded="false">View all stages</button>
+                </div>
+                <div class="progress-meter" role="progressbar" aria-label="Request progress" aria-valuemin="1" aria-valuemax="5" aria-valuenow="2">
+                  <span id="progressFill"></span>
+                </div>
+                <div class="progress hidden" id="progress">
+                </div>
+              </div>
+              <div class="progress-summary-grid">
+                <div class="detail"><span>Next responsible role</span><strong id="residentOwner"></strong></div>
+                <div class="detail"><span>Reference</span><strong id="residentRef"></strong></div>
+              </div>
+              <p class="small muted update-time">Last update: <span id="residentUpdate"></span></p>
+              <section class="photo-evidence hidden" id="residentPhotos">
+                <h3>Issue photos</h3>
+                <div class="photo-columns">
+                  <div><h4>Before repair</h4><div class="photo-preview" id="residentBeforePhotos"></div></div>
+                  <div><h4>After repair</h4><div class="photo-preview" id="residentAfterPhotos"></div></div>
+                </div>
+              </section>
+              <section class="repair-feedback hidden" id="repairFeedback">
+                <h3>How did the repair go?</h3>
+                <p class="small muted">The work is marked complete. Does the issue seem resolved?</p>
+                <div class="stack feedback-options">
+                  <button type="button" class="btn soft" id="resolvedBtn">It seems resolved</button>
+                  <button type="button" class="btn danger" id="unresolvedBtn">It is still happening</button>
+                </div>
+                <div class="field feedback-note-field">
+                  <label for="repairFeedbackNote">Optional note about the repair</label>
+                  <textarea id="repairFeedbackNote" rows="2" placeholder="Add a short note"></textarea>
+                </div>
+                <button type="button" class="btn primary" id="sendRepairFeedback">Send demo feedback</button>
+                <p class="feedback-saved hidden" id="feedbackSaved" role="status"></p>
+              </section>
+              <div class="divider" id="feedbackDivider">
+              </div>
+            </article>
+          </section>
+          <section id="staff-queue" class="view hidden">
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h2>
+                    Maintenance work queue
+                  </h2>
+                  <p class="sub">
+                    Demo queue · no real jobs are shown
+                  </p>
+                </div>
+                <span class="tag blue">
+                  1 demo request
+                </span>
+              </div>
+              <div id="staffTicket">
+              </div>
+            </article>
+          </section>
+          <section id="staff-detail" class="view hidden">
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h2>
+                    Update request
+                  </h2>
+                  <p class="sub">
+                    Staff-side draft · proposed update controls
+                  </p>
+                </div>
+                <span class="tag" id="staffRef">
+                </span>
+              </div>
+              <div class="notice-inline" id="staffIssue">
+              </div>
+              <div class="photo-evidence hidden" id="staffBeforePhotosSection">
+                <h3>Photos attached to the request</h3>
+                <div class="photo-preview" id="staffBeforePhotos"></div>
+              </div>
+              <div class="grid2" style="margin-top:14px">
+                <div class="field">
+                  <label for="staffStatus">
+                    Current stage
+                  </label>
+                  <select id="staffStatus">
+                    <option>
+                      Received
+                    </option>
+                    <option>
+                      Under review
+                    </option>
+                    <option>
+                      Scheduled
+                    </option>
+                    <option>
+                      In progress
+                    </option>
+                    <option>
+                      Completed
+                    </option>
+                    <option>
+                      Needs follow-up
+                    </option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="owner">
+                    Next responsible role
+                  </label>
+                  <select id="owner">
+                    <option>
+                      Hostel staff
+                    </option>
+                    <option>
+                      Maintenance technician
+                    </option>
+                    <option>
+                      Resident
+                    </option>
+                    <option>
+                      Not assigned yet
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="blocker">
+                  Blocker or note
+                </label>
+                <input id="blocker" placeholder="Optional · demo text only">
+              </div>
+              <div class="field">
+                <label for="nextAction">
+                  Next action to show
+                </label>
+                <textarea id="nextAction" placeholder="What should happen next?">
+                </textarea>
+              </div>
+              <button type="button" class="details-toggle" id="afterPhotosToggle" data-copy="afterPhotosToggle" aria-expanded="false">
+                <span aria-hidden="true">＋</span> Add after-work photos (optional)
+              </button>
+              <div class="field photo-field hidden" id="afterPhotosWrap">
+                <label for="afterPhotos">After-work photos</label>
+                <input id="afterPhotos" type="file" accept="image/*" multiple>
+                <span class="hint">Files stay in this browser demo and are not sent or saved.</span>
+                <div class="photo-preview" id="afterPhotoPreview" aria-live="polite"></div>
+              </div>
+              <div class="stack">
+                <button class="btn primary" id="saveUpdate">
+                  Save demo update
+                </button>
+                <button class="btn" data-go="staff-queue">
+                  Back to queue
+                </button>
+              </div>
+            </article>
+          </section>
+        </main>
+      </div>
+      <div class="footer">
+        Exploratory prototype · Proposed stages and fields need review with residents, wardens, and maintenance staff.
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite">
+    </div>
+    <div class="modal-backdrop hidden" id="submissionModal" role="dialog" aria-modal="true" aria-labelledby="submissionTitle" aria-describedby="submissionMessage">
+      <div class="submission-modal">
+        <div class="confirmation-mark" aria-hidden="true">✓</div>
+        <p class="modal-eyebrow">Demo confirmation</p>
+        <h2 id="submissionTitle">Your demo request is ready</h2>
+        <p id="submissionMessage">This demo request is temporary. It has not been sent to hostel staff or saved.</p>
+        <div class="confirmation-reference">Reference <strong id="confirmationRef">DEMO-02</strong></div>
+        <button class="btn primary" id="viewProgressButton">View request progress</button>
+        <button class="text-button modal-close" id="closeConfirmation">Return to form</button>
+      </div>
+    </div>
+    <script src="script.js">
+    </script>
+  </body>
+</html>
